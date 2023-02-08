@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Ball bounce game</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="/style.css">
+  
+  
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="app.js"></script>
+</head>
+<body>
+  <div id="container">
+    <div class="leftpanel">
+        <div id="img_container">
+          <img src="play.png" style="width: 150px; height: 150px; cursor:pointer;" onclick="play()" />
+        </div>
+        <div id="buttonContainer">
+          <p class="close" onclick="closeModal()">X</p>
+
+          <div class="game_instruction">
+            <h1>Game Instruction:</h1>
+            <p style="font-size: 20px;">
+              Control the Ball by moving left (left arrow key) and right (right arrow key) to bounce on multiple platforms as high as you can without falling. <br>
+              As you go higher the level increases and the distance of the platforms also increases. <br>
+              <br>
+
+              The game will save your score and player info when the game is over.
+            </p>
+            <p>
+            <br>
+              <a href="/game_details.html" target="_blank" style="color:greenyellow; font-size: 20px; font-weight: 600;">Game Development Details</a>
+            </p>
+          </div>
+          <button onclick="play()">Start</button>
+        </div>
+        <div id="detailsContainer">
+          <span id="newTopScore" class="makeHidden blink">New Record</span>
+          <div>Points:<span id="heightPlayer">0</span></div>
+          <div>level:<span id="heightLevel">0</span></div>
+          <div>Highest Score:<span id="highest_score">0</span></div>
+          <span style="margin-top: 40px;display: block;">Hello <p id="details" class="player_name"></p> </span>
+          <div id="chatbox">
+            <div>
+              <div id="chatbox_container">
+                <p id="chat_contents"></p>
+              </div>
+              <div style="display: inline-block;max-width: 300px;">
+                <div style="font-weight: 300; font-size: 12px;">name: <input id="chatName"/></div>
+                <div>
+                  <textarea rows="5" cols="35" name="description" id="chatMessage"></textarea>
+                  <button onclick="send()" style="float: right;padding: 5px 20px;">Send</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <a href="/game_details.html" target="_blank" style="color:blue; font-size: 12px; font-weight: 600;">Game Development Details</a>
+        </div>
+        
+        <canvas width="375" height="667" id="game"></canvas>
+        
+    </div>
+    <div class="rightpanel">
+        <div style="display: block; width: 100%;">
+        <div  class="display-inline info-wrapper">
+          <div class="tab-title"><strong>History:</strong></div>
+          <span style="width: 200px;" class="display-inline header">Name</span>
+          <span style="width: 200px;" class="display-inline header">Score</span>
+          <span style="width: 70px;" class="display-inline header">Level</span>
+          <span style="width: 200px;" class="display-inline header">Date</span>
+          <p id="info" class="display-inline" style="text-align: left; width: 200px;"></p>
+          <p id="score" class="display-inline" style="text-align: left; width: 200px;"></p>
+          <p id="level" class="display-inline" style="text-align: left; width: 70px !important;"></p>
+          <p id="date" class="display-inline" style="text-align: left; width: 200px;"></p>
+       </div>
+
+       <div class="display-inline info-wrapper top-scorer">
+          <div class="tab-title"><strong>Top 5 Player:</strong></div>
+          <span style="width: 200px;" class="display-inline header">Name</span>
+          <span style="width: 200px;" class="display-inline header">Score</span>
+          <span style="width: 70px;" class="display-inline header">Level</span>
+          <span style="width: 200px;" class="display-inline header">Date</span>
+          <p id="rank-info" class="display-inline" style="text-align: left; width: 200px;"></p>
+          <p id="rank-score" class="display-inline" style="text-align: left; width: 200px;"></p>
+          <p id="rank-level" class="display-inline" style="text-align: left; width: 70px !important;"></p>
+          <p id="rank-date" class="display-inline" style="text-align: left; width: 200px;"></p>
+       </div>
+        </div>
+       
+        
+    </div>
+  </div>
+  
+</body>
+</html>
